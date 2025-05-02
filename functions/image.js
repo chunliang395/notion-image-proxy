@@ -7,7 +7,7 @@ export async function onRequest(context) {
   }
 
   try {
-    const res = await fetch(targetUrl)
+    const res = await fetch(targetUrl, { redirect: "follow" }) // 允許轉址
     const contentType = res.headers.get("content-type") || "image/jpeg"
     const data = await res.arrayBuffer()
 
